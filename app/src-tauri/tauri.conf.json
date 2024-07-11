@@ -6,8 +6,8 @@
     "distDir": "../public"
   },
   "package": {
-    "productName": "elegant-donosiciel",
-    "version": "0.2.0"
+    "productName": "report-rocket",
+    "version": "0.2.1"
   },
   "tauri": {
     "allowlist": {
@@ -22,13 +22,13 @@
       },
       "externalBin": [],
       "icon": [
-        "icons/daily-elegant-32x32.png",
-        "icons/daily-elegant-128x128.png",
-        "icons/daily-elegant.icns",
-        "icons/daily-elegant.ico"
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
       ],
-      "identifier": "com.ElegantDonosiciel.dev",
-      "longDescription": "",
+      "identifier": "com.reportrocket.dev",
+      "longDescription": "Automatically compile and dispatch detailed summaries to Slack, keeping your team aligned and informed.",
       "macOS": {
         "entitlements": null,
         "exceptionDomain": "",
@@ -37,7 +37,7 @@
         "signingIdentity": null
       },
       "resources": [],
-      "shortDescription": "",
+      "shortDescription": "Auto summaries to Slack",
       "targets": "all",
       "windows": {
         "certificateThumbprint": null,
@@ -56,7 +56,7 @@
         "fullscreen": false,
         "height": 700,
         "resizable": true,
-        "title": "Elegant Donosiciel",
+        "title": "Report Rocket",
         "width": 500
       }
     ]
