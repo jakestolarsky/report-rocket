@@ -1,5 +1,5 @@
 <script>
-    import { loadData, appInfo } from '../store.js';
+    import { loadData, appInfo, webhookUrl } from '../store.js';
     import { onMount } from 'svelte';
 
     let showMenu = false;
@@ -15,15 +15,22 @@
     }
 
     onMount(() => {
-      inputWebhook = localStorage.getItem("savedInput") || "";
+      //mount webhook
+      inputWebhook = localStorage.getItem("savedWebhook") || "";
+
+      //mount app info
       appInfo.subscribe(value => {
         info = value;
       });
     });
 
-    function handleInput(event){
+    function handleWebhookInput(event){
+      //save local storage
       inputWebhook = event.target.value;
-      localStorage.setItem("savedInput", inputWebhook);
+      localStorage.setItem("savedWebhook", inputWebhook);
+
+      //save webhook to data.json
+
     }
 
 </script>
@@ -38,7 +45,7 @@
         <input
           type="text"
           bind:value={inputWebhook}
-          on:input={handleInput}
+          on:input={handleWebhookInput}
           placeholder="Paste slack webhook here.."
         />
         <!-- <label class="upload-label">

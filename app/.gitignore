@@ -1,4 +1,4 @@
 /node_modules/
 /public/build/
-data.json
+data_backup.json
 .DS_Store

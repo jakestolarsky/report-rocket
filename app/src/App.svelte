@@ -9,7 +9,7 @@
 
 	function generateReport() {
 		const items = get(people);
-		const url = get(webhookUrl);
+		const url = localStorage.getItem("savedWebhook") || "";
 		projectName.set(nameOfProject);
 		report = items.map(item => `[ ${item.name} ]\n${item.tasks}\n_________`).join('\n');
 
@@ -86,8 +86,8 @@
 	}
 	.container {
 		display: flex;
-		justify-content: center; /* centrowanie w poziomie */
-		align-items: center; /* centrowanie w pionie */
+		justify-content: center;
+		align-items: center;
 	}
 	:global(body) {
 		background-color: #010101;
