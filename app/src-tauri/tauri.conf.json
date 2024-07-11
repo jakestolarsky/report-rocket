@@ -6,7 +6,7 @@
     "distDir": "../public"
   },
   "package": {
-    "productName": "report-rocket",
+    "productName": "rocket-report",
     "version": "0.2.1"
   },
   "tauri": {
@@ -27,7 +27,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.reportrocket.dev",
+      "identifier": "com.rocketreport.dev",
       "longDescription": "Automatically compile and dispatch detailed summaries to Slack, keeping your team aligned and informed.",
       "macOS": {
         "entitlements": null,
@@ -56,7 +56,7 @@
         "fullscreen": false,
         "height": 700,
         "resizable": true,
-        "title": "Report Rocket",
+        "title": "Rocket Report",
         "width": 500
       }
     ]
