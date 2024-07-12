@@ -1,7 +1,7 @@
 <script>
 	import PersonList from './components/PersonList.svelte';
 	import HamburgerMenu from './components/HamburgerMenu.svelte';
-	import { people, projectName, webhookUrl } from './store.js';
+	import { people, projectName } from './store.js';
 	import { get } from 'svelte/store';
 
 	let report = '';
@@ -9,7 +9,7 @@
 
 	function generateReport() {
 		const items = get(people);
-		const url = get(webhookUrl);
+		const url = localStorage.getItem("savedWebhook") || "";
 		projectName.set(nameOfProject);
 		report = items.map(item => `[ ${item.name} ]\n${item.tasks}\n_________`).join('\n');
 
@@ -29,6 +29,7 @@
 <main>
 
 	<HamburgerMenu />
+
 	<div style="display: flex; flex-direction: column; align-items: center;">
         <input
 			class="project-input"
@@ -85,8 +86,8 @@
 	}
 	.container {
 		display: flex;
-		justify-content: center; /* centrowanie w poziomie */
-		align-items: center; /* centrowanie w pionie */
+		justify-content: center;
+		align-items: center;
 	}
 	:global(body) {
 		background-color: #010101;
