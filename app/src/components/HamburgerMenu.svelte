@@ -1,5 +1,5 @@
 <script>
-    import { loadData, appInfo, webhookUrl } from '../store.js';
+    import { loadData, appInfo } from '../store.js';
     import { onMount } from 'svelte';
 
     let showMenu = false;
@@ -28,9 +28,6 @@
       //save local storage
       inputWebhook = event.target.value;
       localStorage.setItem("savedWebhook", inputWebhook);
-
-      //save webhook to data.json
-
     }
 
 </script>

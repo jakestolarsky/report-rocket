@@ -1,7 +1,7 @@
 <script>
 	import PersonList from './components/PersonList.svelte';
 	import HamburgerMenu from './components/HamburgerMenu.svelte';
-	import { people, projectName, webhookUrl } from './store.js';
+	import { people, projectName } from './store.js';
 	import { get } from 'svelte/store';
 
 	let report = '';

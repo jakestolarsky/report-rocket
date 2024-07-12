@@ -1,7 +1,7 @@
 <script>
     import { people } from '../store.js';
     import { onMount } from 'svelte';
-  
+
     function updateTask(personIndex, event) {
       people.update(p => {
         p[personIndex].tasks = event.target.value;
@@ -9,24 +9,24 @@
       });
       resizeTextarea(event.target);
     }
-  
+
     function removePerson(index) {
       people.update(p => {
         p.splice(index, 1);
         return p;
       });
     }
-  
+
     function resizeTextarea(textarea) {
       textarea.style.height = 'auto';
       textarea.style.height = `${textarea.scrollHeight}px`;
     }
-  
+
     onMount(() => {
       document.querySelectorAll('textarea').forEach(resizeTextarea);
     });
   </script>
-  
+
   <main>
     {#each $people as person, personIndex}
       <div class="card-person">
@@ -41,7 +41,7 @@
       </div>
     {/each}
   </main>
-  
+
   <style>
     .card-person {
       margin: 20px;
@@ -80,4 +80,3 @@
       border: 5px solid #e96e26;
     }
   </style>
-  

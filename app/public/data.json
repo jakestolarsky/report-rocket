@@ -1,5 +1,4 @@
 {
-  "webhookUrl": "test webhook",
   "people": [
     { "name": "Item 1", "tasks": "" },
     { "name": "Item 2", "tasks": "" }
