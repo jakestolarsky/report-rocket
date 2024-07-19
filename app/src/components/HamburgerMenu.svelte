@@ -92,7 +92,7 @@
       display: none;
     }
 
-    .upload-label {
+    /* .upload-label {
       width: 100%;
       margin-bottom: 10px;
     }
@@ -101,7 +101,7 @@
       width: 100%;
       box-sizing: border-box;
       align-items: center;
-    }
+    } */
     p {
         margin: 0;
     }
