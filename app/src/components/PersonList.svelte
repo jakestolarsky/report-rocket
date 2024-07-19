@@ -75,6 +75,7 @@
       min-height: 50px;
       overflow: hidden;
       border-radius: 5px;
+      font-family: "Source Code Pro", monospace;
     }
     .card-textarea:focus {
       border: 5px solid #e96e26;

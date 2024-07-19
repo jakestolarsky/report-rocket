@@ -1,6 +1,9 @@
 <script>
 	import PersonList from './components/PersonList.svelte';
 	import HamburgerMenu from './components/HamburgerMenu.svelte';
+	import Toast from './components/Toast.svelte';
+
+	import { toasts } from './toastStore.js';
 	import { people, projectName } from './store.js';
 	import { get } from 'svelte/store';
 
@@ -21,6 +24,20 @@
 		fetch(url, {
 			method: 'POST',
 			body: JSON.stringify(payload)
+		})
+		.then(() => {
+			toasts.add({
+				message: 'Report generated successfully!',
+				type: 'success',
+				duration: 3000
+			});
+			})
+		.catch((error) => {
+			toasts.add({
+				message: 'Failed to generate report. Please try again.',
+				type: 'error',
+				duration: 3000
+			});
 		});
 	}
 
@@ -45,7 +62,13 @@
 		<button class="btn-generate" on:click={generateReport}>Generate Report</button>
 	</div>
 
-	<pre>{report}</pre>
+	{#each $toasts as toast (toast)}
+		<Toast {...toast} />
+  	{/each}
+
+	<!--
+		<pre>{report}</pre>
+	-->
 </main>
 <style>
 	.project-input {
@@ -54,6 +77,7 @@
 		background-color: rgb(197, 193, 190);
 		border-radius: 10px;
 		transition: border 0.1s;
+		font-family: "Source Code Pro", monospace;
     }
 	.project-input:focus {
       border: 5px solid #e96e26;

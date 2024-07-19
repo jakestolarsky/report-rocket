@@ -30,7 +30,7 @@ label {
 }
 
 input, button, select, textarea {
-	font-family: inherit;
+	font-family: "Source Code Pro", monospace;
 	font-size: inherit;
 	margin: 0 0 0 0;
 	box-sizing: border-box;
