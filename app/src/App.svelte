@@ -25,12 +25,21 @@
 			method: 'POST',
 			body: JSON.stringify(payload)
 		})
-		.then(() => {
-			toasts.add({
-				message: 'Report generated successfully!',
-				type: 'success',
-				duration: 3000
-			});
+		.then(resp => {
+			if (resp.status == 401) {
+				toasts.add({
+					message: 'Bad webhook. Check again if you entered correctly.',
+					type: 'error',
+					duration: 4000
+				});
+			}
+			else if(resp.status == 200) {
+				toasts.add({
+					message: 'Report generated successfully!',
+					type: 'success',
+					duration: 3000
+				});
+			}
 			})
 		.catch((error) => {
 			toasts.add({
@@ -93,6 +102,7 @@
 		cursor: pointer;
 		font-size: 1em;
 		font-weight: bold;
+		font-family: 'Poppins', sans-serif;
 		text-transform: uppercase;
 		transition: all 0.1s;
 		align-self: center;

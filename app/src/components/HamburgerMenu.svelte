@@ -102,6 +102,7 @@
       box-sizing: border-box;
       align-items: center;
     } */
+
     p {
         margin: 0;
     }
