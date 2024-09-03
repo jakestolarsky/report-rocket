@@ -85,7 +85,6 @@
 
     .menu-toggle:hover {
       color: rgb(147, 139, 238);
-      font-size: 1.6em;
     }
 
     .hidden {
