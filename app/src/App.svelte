@@ -6,6 +6,7 @@
 	import { toasts } from './toastStore.js';
 	import { people, projectName } from './store.js';
 	import { get } from 'svelte/store';
+	import { onMount } from 'svelte';
 
 	let report = '';
 	let nameOfProject = get(projectName);
@@ -55,6 +56,16 @@
 			});
 		});
 	}
+
+	$: {
+		localStorage.setItem('people', JSON.stringify(get(people)));
+	}
+	onMount(() => {
+		const savedPeople = localStorage.getItem('people');
+		if (savedPeople) {
+			people.set(JSON.parse(savedPeople));
+		}
+	});
 
 </script>
 
