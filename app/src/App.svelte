@@ -10,6 +10,12 @@
 	let report = '';
 	let nameOfProject = get(projectName);
 
+	let isEditMode = false;
+
+	function toggleEditMode() {
+		isEditMode = !isEditMode;
+	}
+
 	function generateReport() {
 		const items = get(people);
 		const url = localStorage.getItem("savedWebhook") || "";
@@ -56,6 +62,11 @@
 
 	<HamburgerMenu />
 
+	<div class="edit-toggle">
+		<button on:click={toggleEditMode}>✏</button>
+		{isEditMode ? 'leave edit mode' : 'go to edit mode'}
+	</div>
+
 	<div style="display: flex; flex-direction: column; align-items: center;">
         <input
 			class="project-input"
@@ -66,7 +77,7 @@
 			/>
 	</div>
 
-	<PersonList />
+	<PersonList {isEditMode} />
 	<div class="container">
 		<button class="btn-generate" on:click={generateReport}>Generate Report</button>
 	</div>
@@ -80,6 +91,12 @@
 	-->
 </main>
 <style>
+	.edit-toggle{
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		color: #e96e26;
+	}
 	.project-input {
         margin: 20px;
 		color: #010101;
