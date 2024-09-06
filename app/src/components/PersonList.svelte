@@ -77,39 +77,58 @@
       loadFromLocalStorage();
       document.querySelectorAll('textarea').forEach(resizeTextarea);
     });
-  </script>
+</script>
 
   <main>
     {#if isEditMode}
-		  <button on:click={addPerson}>+</button>
+		  <button class="add-button" on:click={addPerson}>+</button>
 	  {/if}
 
     {#each $people as person, personIndex}
       <div class="card-person">
         {#if isEditMode}
-          <button on:click={() => removePerson(personIndex)}>x</button>
-          <button on:click={() => movePersonUp(personIndex)}>▲</button>
-          <button on:click={() => movePersonDown(personIndex)}>▼</button>
+          <div class="top-bar-buttons">
+            <button class="move-button up" on:click={() => movePersonUp(personIndex)}>▲</button>
+            <button class="remove-button" on:click={() => removePerson(personIndex)}>x</button>
+          </div>
 			  {/if}
-        <p class="card-name"
+        <p
+          class="card-name {isEditMode ? 'edit-mode' : ''}"
           contenteditable={isEditMode}
           on:blur={(event) => updatePersonName(personIndex, event)}>
-            {person.name}
-          </p>
+          {person.name}
+        </p>
         <textarea
           class="card-textarea"
           bind:value={person.tasks}
           on:input={(event) => updateTask(personIndex, event)}
           placeholder="is working on.."
         ></textarea>
+        {#if isEditMode}
+          <button class="move-button down" on:click={() => movePersonDown(personIndex)}>▼</button>
+        {/if}
       </div>
     {/each}
   </main>
 
   <style>
     button {
-		  margin: 5px;
+      margin: 5px;
+      background-color: #e96e26;
+      color: rgb(197, 193, 190);
+      border: none;
 	  }
+    .top-bar-buttons{
+      display: flex;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+    }
+    .remove-button{
+      position: absolute;
+      top: -10px;
+      right: -10px;
+    }
     .card-person {
       margin: 20px;
       padding: 18px;
@@ -130,6 +149,16 @@
       font-weight: bolder;
       font-size: x-large;
       color: #010101;
+      padding: 5px;
+    }
+    .card-name:focus {
+      border: 2px solid #e96e26; /* Obwódka podczas edycji */
+      outline: none; /* Usuwamy domyślną obwódkę przeglądarki */
+      border-radius: 10px;
+    }
+    .card-name.edit-mode {
+        border: 2px solid #e96e26; /* Obwódka w trybie edycji */
+        border-radius: 10px;
     }
     .card-textarea {
       color: #010101;
