@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store';
+import { writable, get } from 'svelte/store';
 
 export const people = writable([]);
 export const projectName = writable('');
@@ -17,12 +17,31 @@ async function loadAppInfo() {
   appInfo.set(data);
 }
 
-async function initialize() {
-  const response = await fetch('/data.json');
-  const data = await response.json();
-  people.set(data.people);
-  projectName.set(data.projectName);
-  loadAppInfo();
+function loadFromLocalStorage() {
+	const savedPeople = localStorage.getItem('people');
+
+	if (savedPeople) {
+		people.set(JSON.parse(savedPeople));
+	}
 }
+
+async function initialize() {
+	loadFromLocalStorage();
+
+	if (get(people).length === 0) {
+		const response = await fetch('/data.json');
+		const data = await response.json();
+		people.set(data.people);
+	}
+
+	loadAppInfo();
+}
+
+people.subscribe(value => {
+	if (value.length > 0) {
+		localStorage.setItem('people', JSON.stringify(value));
+	}
+});
+
 
 initialize();

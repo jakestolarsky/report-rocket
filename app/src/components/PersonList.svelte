@@ -4,6 +4,13 @@
 
     export let isEditMode = false;
 
+    function loadFromLocalStorage() {
+      const savedPeople = localStorage.getItem('people');
+      if (savedPeople) {
+        people.set(JSON.parse(savedPeople));
+		  }
+	  }
+
     function updateTask(personIndex, event) {
       people.update(p => {
         p[personIndex].tasks = event.target.value;
@@ -59,13 +66,6 @@
 
 	function saveToLocalStorage(peopleData) {
 		localStorage.setItem('people', JSON.stringify(peopleData));
-	}
-
-	function loadFromLocalStorage() {
-		const savedPeople = localStorage.getItem('people');
-		if (savedPeople) {
-			people.set(JSON.parse(savedPeople));
-		}
 	}
 
     function resizeTextarea(textarea) {
