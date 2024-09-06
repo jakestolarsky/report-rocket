@@ -81,7 +81,7 @@
 
   <main>
     {#if isEditMode}
-		  <button on:click={addPerson}>Dodaj pracownika</button>
+		  <button on:click={addPerson}>+</button>
 	  {/if}
 
     {#each $people as person, personIndex}

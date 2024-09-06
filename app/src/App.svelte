@@ -1,6 +1,7 @@
 <script>
 	import PersonList from './components/PersonList.svelte';
 	import HamburgerMenu from './components/HamburgerMenu.svelte';
+	import ToggleSwitch from './components/ToggleSwitch.svelte';
 	import Toast from './components/Toast.svelte';
 
 	import { toasts } from './toastStore.js';
@@ -13,8 +14,8 @@
 
 	let isEditMode = false;
 
-	function toggleEditMode() {
-		isEditMode = !isEditMode;
+	function handleEditMode(event){
+		isEditMode = event.detail;
 	}
 
 	function generateReport() {
@@ -71,12 +72,11 @@
 
 <main>
 
-	<HamburgerMenu />
-
-	<div class="edit-toggle">
-		<button on:click={toggleEditMode}>✏</button>
-		{isEditMode ? 'leave edit mode' : 'go to edit mode'}
+	<div class="top-bar">
+		<HamburgerMenu />
+		<ToggleSwitch on:isEditModeChange={handleEditMode} />
 	</div>
+
 
 	<div style="display: flex; flex-direction: column; align-items: center;">
         <input
@@ -102,11 +102,10 @@
 	-->
 </main>
 <style>
-	.edit-toggle{
-		position: absolute;
-		top: 10px;
-		right: 10px;
-		color: #e96e26;
+	.top-bar{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 	.project-input {
         margin: 20px;
