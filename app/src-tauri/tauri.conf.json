@@ -7,7 +7,7 @@
   },
   "package": {
     "productName": "rocket-report",
-    "version": "0.4.0"
+    "version": "0.4.1"
   },
   "tauri": {
     "allowlist": {
@@ -54,10 +54,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 700,
+        "height": 720,
         "resizable": true,
         "title": "Rocket Report",
-        "width": 500
+        "width": 480
       }
     ]
   }
