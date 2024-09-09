@@ -1,6 +1,7 @@
 {
   "people": [
-    { "name": "Item 1", "tasks": "" },
-    { "name": "Item 2", "tasks": "" }
+    { "name": "Michael Scott", "tasks": "" },
+    { "name": "Dwight Schrute", "tasks": "" },
+    { "name": "Jim Halpert", "tasks": "" }
   ]
 }

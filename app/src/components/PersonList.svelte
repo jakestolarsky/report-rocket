@@ -117,7 +117,14 @@
       background-color: #e96e26;
       color: rgb(197, 193, 190);
       border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
 	  }
+    .add-button {
+        display: block;
+        margin: 20px auto;
+    }
     .top-bar-buttons{
       display: flex;
       justify-content: center;
@@ -152,12 +159,12 @@
       padding: 5px;
     }
     .card-name:focus {
-      border: 2px solid #e96e26; /* Obwódka podczas edycji */
-      outline: none; /* Usuwamy domyślną obwódkę przeglądarki */
+      border: 3px solid #e96e26;
+      outline: none;
       border-radius: 10px;
     }
     .card-name.edit-mode {
-        border: 2px solid #e96e26; /* Obwódka w trybie edycji */
+        border: 3px solid #e96e26;
         border-radius: 10px;
     }
     .card-textarea {
