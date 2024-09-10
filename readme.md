@@ -1,4 +1,4 @@
-![App icon](/app/graphic/rocket-report-demo.png)
+![App icon](/app/documentation/rocket-report-demo.png)
 # 🚀 Rocket Report
 
 Elevate your team's productivity with Report Rocket, daily reports are a breeze. Automatically compile and dispatch detailed summaries to Slack, keeping your team aligned and informed.
